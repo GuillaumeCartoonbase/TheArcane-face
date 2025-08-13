@@ -1,3 +1,8 @@
+const charFace = 1;
+const charHair = 1;
+const charHairColor = 1;
+const charSkin = 1;
+
 const stateMachine = "selector";
 
 const riveInstance = new rive.Rive({
@@ -14,7 +19,11 @@ const riveInstance = new rive.Rive({
 function onLoadHandler() {
 	// Prevent a blurry canvas by using the device pixel ratio
 	riveInstance.resizeDrawingSurfaceToCanvas();
-	inputs = riveInstance.stateMachineInputs(stateMachine);
+
+	riveInstance.setNumberStateAtPath("face", charFace, "Avatar");
+	riveInstance.setNumberStateAtPath("skin", charSkin, "Avatar");
+	riveInstance.setNumberStateAtPath("hair", charHair, "Avatar");
+	riveInstance.setNumberStateAtPath("hairColor", charHairColor, "Avatar");
 }
 
 // Resize the drawing surface if the window resizes
